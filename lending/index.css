@@ -1,3 +1,30 @@
+:root {
+  --main-bg-color: #F9FAFB;
+  --primary-color: black;
+  --secondary-color: #9D9FA1;
+}
+
+/* Миксин для гибкости отступов */
+@mixin margin-reset {
+  margin: 0;
+}
+
+/* Миксин для общих стилей текста */
+@mixin common-text-styles {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+}
+
+/* Миксин для кнопок */
+@mixin button-styles {
+  height: 52px;
+  width: 134px;
+  font-family: "Inter", sans-serif;
+  background-color: black;
+  color: white;
+}
+
+/* Обнуление отступов и полей для всех элементов */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -16,7 +43,7 @@
 .navcontent {
   display: inline-flex;
   justify-content: space-between;
-  width: 1336px;
+  max-width: 1336px;
   height: 36px;
 }
 
@@ -27,6 +54,7 @@
   align-content: center;
   gap: 40px;
 }
+
 .navigation_center ul li {
   display: inline-flex;
   align-items: center;
@@ -39,6 +67,7 @@
   align-items: center;
   gap: 20px;
 }
+
 .navigation_right ul li {
   display: inline-flex;
   align-items: center;
@@ -48,42 +77,50 @@
   position: relative;
   display: inline-flex;
   height: 700px;
-  background: #F9FAFB;
+  background: var(--main-bg-color);
 }
+
 .content5 .imagecontent {
   width: 736px;
   height: 700px;
 }
+
 .content5 .content1 {
   width: 488px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-family: "Inter", sans-serif;
-  margin: 207px 134px 207px 82px;
+  @include margin-reset;
+  @include common-text-styles;
   justify-content: center;
+  margin: 207px 134px 207px 82px;
 }
+
 .content5 .content1 .content11 {
   font-size: 16px;
   font-weight: 600;
   line-height: 26px;
 }
+
 .content5 .content1 .content12 {
   font-size: 54px;
   font-weight: 600;
   line-height: 62px;
 }
+
 .content5 .content1 .content13 {
   font-size: 18px;
   font-weight: 400;
   line-height: 30px;
 }
+
 .content5 .content1 .content14 {
   font-size: 18px;
   font-weight: 600;
   line-height: 32px;
   letter-spacing: -0.4px;
 }
+
 .content5 .arrows {
   position: absolute;
   display: flex;
@@ -96,28 +133,32 @@
   display: block;
   align-items: flex-start;
   flex-direction: column;
-  width: 1336px;
+  width: 100%;
+  max-width: 1336px;
   height: 192px;
-  padding: 52px 0 52px 0;
-  border-top: 1px #9D9FA1 solid;
-  border-bottom: 1px #9D9FA1 solid;
-  margin-left: 52px;
+  padding: 52px 0;
+  border-top: 1px var(--secondary-color) solid;
+  border-bottom: 1px var(--secondary-color) solid;
+  margin: 0 auto;
   position: relative;
   margin-top: 52px;
   margin-bottom: 52px;
 }
+
 .logossection .content {
   position: relative;
   display: inline-flex;
 }
+
 .logossection .content .logogroup {
   display: inline-flex;
   gap: 48px;
-  width: 1336px;
+  max-width: 100%;
   height: 80px;
   justify-content: center;
   align-items: center;
 }
+
 .logossection .content .navigation {
   display: flex;
   gap: 1200px;
@@ -129,6 +170,7 @@
   display: flex;
   text-align: center;
 }
+
 .bannergrid .cards {
   display: inline-flex;
   padding: 52px;
@@ -141,53 +183,57 @@
   display: inline-flex;
   padding: 0 52px 0 52px;
   gap: 114px;
-  background: #F9FAFB;
+  background: var(--main-bg-color);
   margin-top: 52px;
   margin-bottom: 52px;
 }
+
 .content2 .saleContentWords {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  font-family: Inter;
+  @include common-text-styles;
 }
+
 .content2 button {
-  height: 52px;
-  width: 134px;
-  font-family: Inter;
+  @include button-styles;
 }
 
 .CTA {
   display: flex;
   padding: 52px;
 }
+
 .CTA .contentCTA {
   display: flex;
-  border: solid 1px #9D9FA1;
+  border: solid 1px var(--secondary-color);
   border-radius: 10px;
-  width: 1336px;
+  max-width: 1336px;
   height: 334px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
+
 .CTA .contentCTA .wordsCTA {
-  font-family: Inter;
+  @include common-text-styles;
   text-align: center;
 }
+
 .CTA .contentCTA .emailCTA {
-  font-family: Inter;
+  @include common-text-styles;
   display: inline-flex;
-  width: 488px;
+  width: 100%;
   height: 36px;
-  border-bottom: 1px #9D9FA1 solid;
+  border-bottom: 1px var(--secondary-color) solid;
 }
+
 .CTA .contentCTA .emailCTA input {
-  font-family: Inter;
+  @include common-text-styles;
   font-size: 16px;
   margin-left: 8px;
   margin-right: 8px;
-  width: 395px;
+  width: 100%;
   height: 26px;
 }
 
@@ -196,24 +242,25 @@
   padding: 52px;
   flex-direction: column;
 }
+
 .bannerImage .imgbanner {
   position: relative;
 }
+
 .bannerImage .bannerWords {
   position: absolute;
   display: block;
-  font-family: Inter;
+  @include common-text-styles;
   width: 478px;
   text-align: center;
-  margin: 158px 430px 100px 430px;
+  margin: 158px auto 100px;
   color: white;
 }
 
 footer {
-  background: #F9FAFB;
-  width: 1440px;
-  height: 381px;
-  padding: 72px 52px 32px 52px;
+  background: var(--main-bg-color);
+  width: 100%;
+  padding: 72px 52px 32px;
 }
 
 .footerContent {
@@ -221,19 +268,24 @@ footer {
   align-items: center;
   gap: 384px;
   padding: 52px;
+  max-width: 1440px;
+  margin: 0 auto;
 }
+
 .footerContent .rightFooterContent {
   gap: 120px;
   text-align: left;
   display: inline-flex;
 }
+
 .footerContent .rightFooterContent .learnclass {
   display: flex;
   flex-direction: column;
   margin-top: 16px;
-  color: #5F6980;
+  color: var(--secondary-color);
   gap: 12px;
 }
+
 .footerContent .iconBoxFooter {
   gap: 16px;
   width: 32px;
@@ -243,13 +295,11 @@ footer {
 
 .bottomFooter {
   display: inline-flex;
-  padding: 24px 0 24px 0;
+  padding: 24px 0;
   gap: 1004px;
-  border-top: 1px solid #D0D5DD;
+  border-top: 1px solid var(--secondary-color);
 }
 
 .buttonsFooter {
   display: inline-flex;
 }
-
-/*# sourceMappingURL=index.css.map */
